@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>WebXR</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/igalia.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section data-markdown="presentation.md"
+					    data-separator="^----\n"
+					    data-separator="^---\n"
+					    data-separator-notes="^Note:"
+					    data-charset="utf-8">
+				</section>
+
+			</div>
+
+			<!-- Do not remove -->
+			<div class="igalia-bg-1"></div>
+			<div class="igalia-bg-2"></div>
+			<div class="igalia-bg-3"></div>
+			<div class="igalia-footer">
+				<strong>WebXR</strong>
+				Imanol Fernandez, Igalia, September 2021
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script src="plugin/chart/Chart.min.js"></script>
+		<script src="plugin/chart/plugin.js"></script>
+
+		<script>
+			const onSlideChange = event => {
+				if (event.currentSlide.dataset.hasOwnProperty('cover')) {
+					document.querySelector('.reveal').classList.add('is-cover')
+				} else {
+					document.querySelector('.reveal').classList.remove('is-cover')
+				}
+				if (event.currentSlide.dataset.hasOwnProperty('middleCover')) {
+					document.querySelector('.reveal').classList.add('is-middle-cover')
+				} else {
+					document.querySelector('.reveal').classList.remove('is-middle-cover')
+				}
+				if (event.currentSlide.dataset.hasOwnProperty('sectionCover')) {
+					document.querySelector('.reveal').classList.add('is-section-cover')
+				} else {
+					document.querySelector('.reveal').classList.remove('is-section-cover')
+				}
+				if (event.currentSlide.dataset.hasOwnProperty('sectionCover-2')) {
+					document.querySelector('.reveal').classList.add('is-section-cover2')
+				} else {
+					document.querySelector('.reveal').classList.remove('is-section-cover2')
+				}
+				if (event.currentSlide.dataset.hasOwnProperty('backgroundColor')
+						|| event.currentSlide.dataset.hasOwnProperty('backgroundImage')) {
+					document.querySelector('.reveal').classList.add('is-bg')
+				} else {
+					document.querySelector('.reveal').classList.remove('is-bg')
+				}
+			}
+
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				height: 800,
+				minScale: 0.7,
+				chart: {
+					defaults: {
+						global: {
+							title: { fontColor: "#000" },
+							legend: {
+								position: "bottom",
+								labels: { fontColor: "#000" },
+							},
+							tooltips: {
+								labels: { fontColor: "#000" },
+							},
+						},
+						scale: {
+							scaleLabel: { fontColor: "#000" },
+							ticks: { fontColor: "#000", beginAtZero: true },
+						},
+					},
+					pie: {
+						backgroundColor: [ ["#0067B1" , "#FF9900", "#670164", "#A1C22D"] ],
+						fontSize: 40
+					},
+					bar: { backgroundColor: [ "#0067B1" , "#FF9900", "#670164", "#A1C22D" ], },
+					line: { backgroundColor: [ "#0067B1" , "#FF9900", "#670164", "#A1C22D" ], },
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealChart, RevealMath  ]
+			});
+
+			Reveal.on('slidechanged', onSlideChange);
+			Reveal.on('ready', onSlideChange);
+
+		</script>
+	</body>
+</html>

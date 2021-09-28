@@ -1,0 +1,549 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+@font-face {
+  font-family: 'Etelka';
+  src: url("fonts/EtelkaLight.woff2") format("woff2"), url("fonts/EtelkaLight.woff") format("woff"), url("fonts/EtelkaLight.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Etelka';
+  src: url("fonts/EtelkaText.woff2") format("woff2"), url("fonts/EtelkaText.woff") format("woff"), url("fonts/EtelkaText.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal; }
+
+*,
+::after,
+::before {
+  box-sizing: border-box; }
+
+.reveal {
+  font-size: 22px;
+  font-family: "Etelka", Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  color: #404040; }
+  @media (min-width: 768px) {
+    .reveal {
+      font-size: calc(22px + (42 - 22) * ((100vw - 768px) / (1300 - 768))); } }
+  @media (min-width: 1300px) {
+    .reveal {
+      font-size: 42px; } }
+  .reveal-viewport {
+    background-color: #fff; }
+  .reveal .progress {
+    color: #670164; }
+  .reveal .controls {
+    bottom: 12px;
+    left: 12px;
+    top: 12px;
+    color: #670164; }
+    .reveal .controls .navigate-left {
+      left: 0;
+      right: auto;
+      bottom: 50%; }
+    .reveal .controls .navigate-right {
+      bottom: 50%; }
+    .reveal .controls .navigate-down {
+      left: 50%;
+      transform: translateX(-50);
+      bottom: 0; }
+    .reveal .controls .navigate-up {
+      left: 50%;
+      transform: translateX(-50);
+      top: 0;
+      bottom: auto; }
+  .reveal .igalia-bg-1 {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: -100px;
+    left: -200px;
+    width: 722px;
+    height: 181px;
+    background: url("images/top-left.png") no-repeat center center; }
+    @media (min-width: 3500px) {
+      .reveal .igalia-bg-1 {
+        width: 2166px;
+        height: 543px;
+        background-size: cover; } }
+  .reveal .igalia-bg-2 {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 128px;
+    height: 182px;
+    background: url("images/top-right.png") no-repeat center center; }
+    @media (min-width: 3500px) {
+      .reveal .igalia-bg-2 {
+        width: 384px;
+        height: 546px;
+        background-size: cover; } }
+  .reveal .igalia-bg-3 {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 197px;
+    height: 496px;
+    background: url("images/bottom-left.png") no-repeat center center; }
+    @media (min-width: 3500px) {
+      .reveal .igalia-bg-3 {
+        width: 591px;
+        height: 1488px;
+        background-size: cover; } }
+  .reveal .igalia-footer {
+    font-size: 11px;
+    position: absolute;
+    z-index: 10;
+    bottom: 16px;
+    right: 32px;
+    text-align: right;
+    font-style: italic;
+    padding: 8px 80px 8px 8px;
+    background: url("images/imago.png") no-repeat right center rgba(255, 255, 255, 0.8);
+    background-size: contain;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; }
+    @media (min-width: 768px) {
+      .reveal .igalia-footer {
+        font-size: calc(11px + (18 - 11) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-footer {
+        font-size: 18px; } }
+    @media (max-height: 500px) {
+      .reveal .igalia-footer {
+        display: none; } }
+    .reveal .igalia-footer strong {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 4px; }
+  .reveal .slide-number {
+    font-size: 11px;
+    color: #404040;
+    right: auto;
+    bottom: 16px;
+    left: 32px;
+    font-style: italic;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.8); }
+    @media (min-width: 768px) {
+      .reveal .slide-number {
+        font-size: calc(11px + (18 - 11) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .slide-number {
+        font-size: 18px; } }
+    .reveal .slide-number a {
+      background: transparent;
+      font-weight: normal; }
+  .reveal::after {
+    content: "";
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    width: 177px;
+    height: 64px;
+    background: url("images/igalia-logo.png") no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; }
+  .reveal .igalia-wrapper {
+    text-align: left;
+    background-color: rgba(103, 1, 100, 0.8);
+    padding: 32px;
+    position: relative; }
+    .reveal .igalia-wrapper::before {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 50vw;
+      left: -50vw;
+      top: 0;
+      background-color: rgba(103, 1, 100, 0.8); }
+    .reveal .igalia-wrapper--alt {
+      background-color: rgba(236, 236, 236, 0.7);
+      color: #404040;
+      font-size: 18px;
+      padding: 5px 25px 5px 0;
+      position: absolute;
+      left: 0;
+      top: 50vh; }
+      .reveal .igalia-wrapper--alt::before {
+        background-color: rgba(236, 236, 236, 0.7); }
+  .reveal.is-bg .igalia-footer {
+    color: #fff;
+    background-color: transparent; }
+  .reveal.is-bg section {
+    color: #fff; }
+    .reveal.is-bg section h1,
+    .reveal.is-bg section h2,
+    .reveal.is-bg section h3,
+    .reveal.is-bg section h4,
+    .reveal.is-bg section h5,
+    .reveal.is-bg section h6 {
+      color: #fff; }
+  .reveal.is-cover::after {
+    opacity: 1; }
+  .reveal.is-cover .igalia-footer {
+    opacity: 0; }
+  .reveal.is-cover .igalia-bg-1 {
+    top: 0;
+    left: 0; }
+  .reveal.is-cover .igalia-bg-2 {
+    top: 0;
+    right: 0; }
+  .reveal.is-cover .igalia-bg-3 {
+    bottom: 0;
+    left: 0; }
+  .reveal.is-section-cover .igalia-bg-1 {
+    opacity: 0; }
+  .reveal.is-section-cover .igalia-bg-2 {
+    opacity: 0; }
+  .reveal.is-section-cover .igalia-bg-3 {
+    opacity: 0; }
+  .reveal.is-section-cover2 .igalia-bg-1 {
+    top: 0;
+    left: 0; }
+  .reveal.is-section-cover2 .igalia-bg-2 {
+    top: 0;
+    right: 0; }
+  .reveal.is-section-cover2 .igalia-bg-3 {
+    bottom: 0;
+    left: 0; }
+  .reveal.is-middle-cover .igalia-footer {
+    opacity: 0; }
+  .reveal.is-middle-cover .igalia-bg-1 {
+    opacity: 0; }
+  .reveal.is-middle-cover .igalia-bg-2 {
+    opacity: 0.1; }
+  .reveal.is-middle-cover .igalia-bg-3 {
+    opacity: 0.1; }
+  .reveal .slides {
+    max-width: 100%; }
+    .reveal .slides section.igalia-align-left {
+      text-align: left; }
+  .reveal h1,
+  .reveal h2,
+  .reveal h3,
+  .reveal h4,
+  .reveal h5,
+  .reveal h6 {
+    color: #404040;
+    font-weight: bold;
+    margin-top: 0;
+    line-height: 1.2; }
+  .reveal h1 {
+    font-size: 52px;
+    margin-bottom: 32px; }
+    @media (min-width: 768px) {
+      .reveal h1 {
+        font-size: calc(52px + (92 - 52) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal h1 {
+        font-size: 92px; } }
+  .reveal h2 {
+    font-size: 52px;
+    margin-bottom: 32px; }
+    @media (min-width: 768px) {
+      .reveal h2 {
+        font-size: calc(52px + (72 - 52) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal h2 {
+        font-size: 72px; } }
+  .reveal h3 {
+    font-size: 42px;
+    margin-bottom: 32px; }
+    @media (min-width: 768px) {
+      .reveal h3 {
+        font-size: calc(42px + (62 - 42) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal h3 {
+        font-size: 62px; } }
+  .reveal h4 {
+    font-size: 32px;
+    margin-bottom: 32px; }
+    @media (min-width: 768px) {
+      .reveal h4 {
+        font-size: calc(32px + (52 - 32) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal h4 {
+        font-size: 52px; } }
+  .reveal h5 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 12px; }
+    @media (min-width: 768px) {
+      .reveal h5 {
+        font-size: calc(22px + (42 - 22) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal h5 {
+        font-size: 42px; } }
+  .reveal h6 {
+    font-size: 12px;
+    margin-bottom: 12px; }
+    @media (min-width: 768px) {
+      .reveal h6 {
+        font-size: calc(12px + (32 - 12) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal h6 {
+        font-size: 32px; } }
+  .reveal ul,
+  .reveal ol {
+    font-size: 20.6px;
+    margin-left: 32px; }
+    @media (min-width: 768px) {
+      .reveal ul,
+      .reveal ol {
+        font-size: calc(20.6px + (35.6 - 20.6) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal ul,
+      .reveal ol {
+        font-size: 35.6px; } }
+    .reveal ul ul,
+    .reveal ul ol,
+    .reveal ol ul,
+    .reveal ol ol {
+      margin-left: 32px; }
+  .reveal ol {
+    text-align: left; }
+    .reveal ol ::marker {
+      font-weight: bold;
+      font-size: 1.2em; }
+  .reveal iframe {
+    max-width: 100%; }
+  .reveal strong {
+    font-weight: bold; }
+  .reveal em {
+    font-style: italic; }
+  .reveal a {
+    background-color: rgba(0, 103, 177, 0.2);
+    font-weight: bold;
+    color: #0067b1;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 2px; }
+  .reveal canvas {
+    margin: 0 0 40px 0; }
+  .reveal blockquote {
+    font-style: italic;
+    line-height: 1.25;
+    background: url("images/quote.svg") bottom center no-repeat;
+    padding-bottom: 64px; }
+    .reveal blockquote cite {
+      font-size: 16px;
+      display: block;
+      margin-top: 40px;
+      line-height: 1.33; }
+      @media (min-width: 768px) {
+        .reveal blockquote cite {
+          font-size: calc(16px + (24 - 16) * ((100vw - 768px) / (1300 - 768))); } }
+      @media (min-width: 1300px) {
+        .reveal blockquote cite {
+          font-size: 24px; } }
+  .reveal .MathJax_Display {
+    background: url("images/formula.svg") bottom center no-repeat;
+    padding-bottom: 64px; }
+  .reveal .hljs {
+    font-size: 20px;
+    text-align: left;
+    padding: 32px;
+    margin: 32px 0; }
+    @media (min-width: 768px) {
+      .reveal .hljs {
+        font-size: calc(20px + (30 - 20) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .hljs {
+        font-size: 30px; } }
+  .reveal p {
+    margin: 1rem 0; }
+  .reveal img {
+    max-width: 90%;
+    height: auto;
+    margin: 24px; }
+  .reveal table {
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    line-height: 1.33; }
+    @media (min-width: 768px) {
+      .reveal table {
+        font-size: calc(16px + (24 - 16) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal table {
+        font-size: 24px; } }
+    .reveal table th {
+      padding: 16px;
+      font-weight: bold;
+      background-color: #dddddd; }
+    .reveal table td {
+      padding: 16px;
+      background-color: #ececec; }
+  .reveal .igalia-text-small,
+  .reveal small {
+    font-size: 16px;
+    line-height: 1.33;
+    display: block; }
+    @media (min-width: 768px) {
+      .reveal .igalia-text-small,
+      .reveal small {
+        font-size: calc(16px + (24 - 16) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-text-small,
+      .reveal small {
+        font-size: 24px; } }
+  .reveal .igalia-text-medium {
+    font-size: 20px;
+    line-height: 1.33; }
+    @media (min-width: 768px) {
+      .reveal .igalia-text-medium {
+        font-size: calc(20px + (30 - 20) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-text-medium {
+        font-size: 30px; } }
+  .reveal .igalia-columns {
+    column-count: 2;
+    column-gap: 64px; }
+    .reveal .igalia-columns *:first-child {
+      margin-top: 0; }
+  .reveal .igalia-qa {
+    font-size: 20px;
+    list-style: none;
+    margin: 32px 0;
+    line-height: 1.33; }
+    @media (min-width: 768px) {
+      .reveal .igalia-qa {
+        font-size: calc(20px + (30 - 20) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-qa {
+        font-size: 30px; } }
+    .reveal .igalia-qa li::before {
+      content: 'A';
+      color: #0067b1;
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 16px; }
+    .reveal .igalia-qa li:nth-child(odd) {
+      font-weight: bold;
+      margin-top: 32px; }
+      .reveal .igalia-qa li:nth-child(odd)::before {
+        content: 'Q'; }
+  .reveal .igalia-message-info {
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.33;
+    padding: 0 0 20px 48px;
+    margin: 62px 0;
+    color: #0067b1;
+    border-bottom: 4px solid #0067b1;
+    background: url("images/info.svg") no-repeat top left; }
+    @media (min-width: 768px) {
+      .reveal .igalia-message-info {
+        font-size: calc(16px + (24 - 16) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-message-info {
+        font-size: 24px; } }
+  .reveal .igalia-message-ok {
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.33;
+    padding: 0 0 20px 48px;
+    margin: 62px 0;
+    color: #028613;
+    border-bottom: 4px solid #028613;
+    background: url("images/ok.svg") no-repeat top left; }
+    @media (min-width: 768px) {
+      .reveal .igalia-message-ok {
+        font-size: calc(16px + (24 - 16) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-message-ok {
+        font-size: 24px; } }
+  .reveal .igalia-message-ko {
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.33;
+    padding: 0 0 20px 48px;
+    margin: 62px 0;
+    color: #ff5a5a;
+    border-bottom: 4px solid #ff5a5a;
+    background: url("images/ko.svg") no-repeat top left; }
+    @media (min-width: 768px) {
+      .reveal .igalia-message-ko {
+        font-size: calc(16px + (24 - 16) * ((100vw - 768px) / (1300 - 768))); } }
+    @media (min-width: 1300px) {
+      .reveal .igalia-message-ko {
+        font-size: 24px; } }
+
+html.print-pdf .igalia-bg-1,
+html.print-pdf .igalia-bg-2,
+html.print-pdf .igalia-bg-3 {
+  display: none; }
+
+html.print-pdf .reveal::after {
+  display: none; }
+
+html.print-pdf .reveal .igalia-wrapper {
+  color: #fff !important; }
+  html.print-pdf .reveal .igalia-wrapper h1, html.print-pdf .reveal .igalia-wrapper h2, html.print-pdf .reveal .igalia-wrapper h3, html.print-pdf .reveal .igalia-wrapper h4, html.print-pdf .reveal .igalia-wrapper h5, html.print-pdf .reveal .igalia-wrapper h6 {
+    color: #fff !important; }
+  html.print-pdf .reveal .igalia-wrapper--alt {
+    color: #404040 !important; }
+
+html.print-pdf .reveal .pdf-page {
+  position: relative;
+  margin-bottom: 50px; }
+  html.print-pdf .reveal .pdf-page .present {
+    padding: 40px 70px !important; }
+  html.print-pdf .reveal .pdf-page .slide-background {
+    background: none !important; }
+    html.print-pdf .reveal .pdf-page .slide-background::before {
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 177px;
+      height: 64px;
+      background: url("images/igalia-logo.png") no-repeat center center;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out; }
+    html.print-pdf .reveal .pdf-page .slide-background::after {
+      content: "";
+      transition: all 0.3s ease-in-out;
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 197px;
+      height: 496px;
+      background: url("images/bottom-left.png") no-repeat center center; }
+  html.print-pdf .reveal .pdf-page::before {
+    content: "";
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: -100px;
+    left: -200px;
+    width: 722px;
+    height: 181px;
+    background: url("images/top-left.png") no-repeat center center; }
+  html.print-pdf .reveal .pdf-page::after {
+    content: "";
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 128px;
+    height: 182px;
+    background: url("images/top-right.png") no-repeat center center; }
+  html.print-pdf .reveal .pdf-page.has-background::before, html.print-pdf .reveal .pdf-page.has-background::after {
+    display: none; }
+  html.print-pdf .reveal .pdf-page.has-background .slide-background::before, html.print-pdf .reveal .pdf-page.has-background .slide-background::after {
+    display: none; }
+  html.print-pdf .reveal .pdf-page.has-chart {
+    height: 831px !important; }
+    html.print-pdf .reveal .pdf-page.has-chart .present {
+      padding-top: 70px !important; }

@@ -1,0 +1,79 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+@function strip-unit($number) {
+  @if type-of($number)=="number"and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin font-between($min, $max, $max_res: $container-max, $min_res: 768px) {
+  font-size: $min;
+
+  @media (min-width: $min_res) {
+    font-size: calc(#{$min} + (#{strip-unit($max)} - #{strip-unit($min)}) * ((100vw - #{$min_res}) / (#{strip-unit($max_res)} - #{strip-unit($min_res)})));
+  }
+
+  @media (min-width: $max_res) {
+    font-size: $max;
+  }
+}
+
+// Include theme-specific fonts
+//
+
+@font-face {
+  font-family: 'Etelka';
+  src: url('fonts/EtelkaLight.woff2') format('woff2'),
+  url('fonts/EtelkaLight.woff') format('woff'),
+  url('fonts/EtelkaLight.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Etelka';
+  src: url('fonts/EtelkaText.woff2') format('woff2'),
+  url('fonts/EtelkaText.woff') format('woff'),
+  url('fonts/EtelkaText.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+$brandColor: #670164;
+$mainColor: #404040;
+$headingColor: #404040;
+$bgSectionColor: rgba($brandColor, 0.8);
+$linkColor: #0067b1;
+
+$mainFontSize: 32px;
+$mainFont: 'Etelka', Helvetica, sans-serif;
+
+
+$heading1Size: 72px;
+$heading2Size: 62px;
+$heading3Size: 52px;
+$heading4Size: 42px;
+$heading5Size: 32px;
+$heading6Size: 22px;
+
+
+$container-max: 1300px;
+
+// Theme template ------------------------------
+@import "../template/igalia";
+// ---------------------------------------------
